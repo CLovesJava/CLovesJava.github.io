@@ -31,6 +31,13 @@
                 user-select: none;
         -webkit-tap-highlight-color: transparent;
     }
+
+    .new-result-btn {
+      height: 52px;
+      border-radius: 10px;
+      border: 2px solid #636366;
+      cursor: pointer;
+    }
     
     button {
       width: 150px;
@@ -66,6 +73,13 @@
       animation-fill-mode: forwards;
     }
 
+    .div2 {
+      margin: 25px;
+      font-family: 'Nanum Pen Script', sans-serif;
+      color: white;
+      font-size: 28px;
+    }
+
     @keyframes example {
       from {
         top: 0px;
@@ -85,11 +99,48 @@
   </div>
   <button class="noselect" onclick="updateBtn()">선물 받기</button>
 
+  <div class="div2">
+    카카오톡 공유하기
+    <img
+          class="new-result-btn"
+          onclick="js:kakaoShare()"
+          src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+  />
+  </div>
+  
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
   <script>
+  Kakao.init('61ffeebc2e1021597ac0e7b55ffe7b86');
+  Kakao.isInitialized();
+
     function updateBtn() {
       var img = document.querySelector('#imgdiv');
       img.className = "drop";
     }
+
+  function kakaoShare() {
+    Kakao.Link.sendDefault({
+      objectType: "feed",
+      content: {
+          title: "카카오톡 테스트용", // 공유할 때 제목
+          description: "카카오톡 공유 테스트용입니다.", // 설명
+          imageUrl: "/img/gift.png", // 카톡 공유시 보여질 이미지
+          link: {
+              mobileWebUrl: "https://naver.com", // 이미지 클릭 시 이동할 사이트 (모바일)
+              webUrl: "https://naver.com", // 이미지 클릭시 이동할 사이트
+          },
+      },
+      buttons: [
+          {
+              title: "웹으로 보기", // (이거 뭔 차이인지 나도 잘 모르겠음)
+              link: {
+                  mobileWebUrl: "https://naver.com", // 이미지 클릭시 이동할 사이트 (모바일)
+                  webUrl: "https://naver.com", // 이미지 클릭시 이동할 사이트
+              },
+          },
+      ],
+  });
+  }
 
 
   </script>
