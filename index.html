@@ -31,13 +31,6 @@
                 user-select: none;
         -webkit-tap-highlight-color: transparent;
     }
-
-    .new-result-btn {
-      height: 52px;
-      border-radius: 10px;
-      border: 2px solid #636366;
-      cursor: pointer;
-    }
     
     button {
       width: 150px;
@@ -75,9 +68,6 @@
 
     .div2 {
       margin: 25px;
-      font-family: 'Nanum Pen Script', sans-serif;
-      color: white;
-      font-size: 28px;
     }
 
     @keyframes example {
@@ -94,24 +84,26 @@
   <title>콤부차 깔라망고 선물 받기</title>
 </head>
 <body>
-  <div id="imgdiv">
+  <!-- <div id="imgdiv">
     <img src="/img/gift.png" alt="Kombucha">
   </div>
-  <button class="noselect" onclick="updateBtn()">선물 받기</button>
+  <button class="noselect" onclick="updateBtn()">선물 받기</button> -->
 
   <div class="div2">
-    카카오톡 공유하기
-    <img
-          class="new-result-btn"
-          onclick="js:kakaoShare()"
-          src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
-  />
+    <a id="kakao-link-btn" href="https://oldiletter.github.io/oldiletter.html?issue=3&title=그 시절 SNS, '싸이월드'로 찾아보는 세 번째 추억 조각&url=https://stibee.com/api/v1.0/emails/share/IHAJGd0llRydolGflNKe62b1i5kyfj4="
+    target="_blank" style="border-width:0px;border-color:initial;text-decoration:none;display:block;color:#f9e000" title="공유하기" >
+      <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+      style="height:22px;width:auto;vertical-align:middle" height="22" width="22" class="CToWUd" data-bit="iit">
+      <span style="vertical-align:middle;color:rgb(96,97,101);font-size:12px;display:inline-block;margin:0px 0px 0px 6px">
+        공유하기
+      </span>
+    </a>
   </div>
   
-  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-  <script>
+  <!-- <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  <script type="text/javascript">
   Kakao.init('61ffeebc2e1021597ac0e7b55ffe7b86');
-  Kakao.isInitialized();
+  console.log(Kakao.isInitialized());
 
     function updateBtn() {
       var img = document.querySelector('#imgdiv');
@@ -120,30 +112,32 @@
 
   function kakaoShare() {
     Kakao.Link.sendDefault({
-      objectType: "feed",
+      objectType: 'feed',
       content: {
-          title: "카카오톡 테스트용", // 공유할 때 제목
-          description: "카카오톡 공유 테스트용입니다.", // 설명
-          imageUrl: "/img/gift.png", // 카톡 공유시 보여질 이미지
-          link: {
-              mobileWebUrl: "https://naver.com", // 이미지 클릭 시 이동할 사이트 (모바일)
-              webUrl: "https://naver.com", // 이미지 클릭시 이동할 사이트
-          },
+        title: '올디레터 3호', // 공유하기 제목 (검정 글씨)
+        description: '올디레터 뉴스레터 3호입니다.', // 공유하기 설명 (반투명 글씨)
+        imageUrl: 'https://cdn.imweb.me/thumbnail/20230117/fc6091dc0c833.png', // 커버로 뜨는 이미지 (해당 뉴스레터 이미지를 넣어도 됨)
+        link: {
+          mobileWebUrl: 'https://stibee.com/api/v1.0/emails/share/IHAJGd0llRydolGflNKe62b1i5kyfj4=', // stibee 링크 (모바일)
+          webUrl: 'https://stibee.com/api/v1.0/emails/share/IHAJGd0llRydolGflNKe62b1i5kyfj4=', // stibee 링크
+        },
       },
       buttons: [
-          {
-              title: "웹으로 보기", // (이거 뭔 차이인지 나도 잘 모르겠음)
-              link: {
-                  mobileWebUrl: "https://naver.com", // 이미지 클릭시 이동할 사이트 (모바일)
-                  webUrl: "https://naver.com", // 이미지 클릭시 이동할 사이트
-              },
+        {
+          title: '웹으로 보기', // 버튼에 적히는 글씨
+          link: {
+            mobileWebUrl: 'https://stibee.com/api/v1.0/emails/share/IHAJGd0llRydolGflNKe62b1i5kyfj4=', // stibee 링크 (모바일)
+            webUrl: 'https://stibee.com/api/v1.0/emails/share/IHAJGd0llRydolGflNKe62b1i5kyfj4=', // stibee 링크
           },
+        },
       ],
-  });
+      // 카카오톡 미설치 시 카카오톡 설치 경로이동
+      installTalk: true,
+    })
   }
 
 
-  </script>
+  </script> -->
 
 </body>
 </html>
